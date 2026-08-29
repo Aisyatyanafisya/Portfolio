@@ -1,0 +1,6 @@
+{
+  "name": "Aisya Tyanafisya Portfolio",
+  "description": "Personal software engineering portfolio for Aisya Tyanafisya featuring AI, web development, UI/UX, and data analytics projects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
