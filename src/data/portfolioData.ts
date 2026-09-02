@@ -1,4 +1,5 @@
 import { WorkExperience, TechStackItem, ProjectItem, SkillCategory, EducationItem, ContactInfo } from '../types';
+import profilePic from "../assets/pp.jpg"; 
 
 export const personalInfo = {
   name: 'Aisya Tyanafisya',
@@ -7,13 +8,9 @@ export const personalInfo = {
   bio: 'A passionate Software Engineering student with hands-on experience in building industrial AI monitoring systems, Computer Vision pipelines (ANPR & YOLO), data annotation pipelines, and full-stack applications. Dedicated to crafting reliable, user-centric software that solves real-world engineering challenges.',
   location: 'Indonesia',
   availability: 'Open to Software Engineering & AI Roles',
-  stats: [
-    { label: 'Dataset Processed', value: '10,000+ Imgs' },
-    { label: 'Plate Accuracy', value: '>90%' },
-    { label: 'IPB University GPA', value: '3.69 / 4.00' },
-    { label: 'Mentoring Impact', value: 'Best Project Award' }
-  ]
-};
+  downloadCV: 'https://drive.google.com/drive/folders/1oO-Dar6L2Ity7ZN6zaYxTasrZ2Qc4yqz?usp=sharing',
+  profilePic: profilePic
+  };
 
 export const workExperiences: WorkExperience[] = [
   {
@@ -415,14 +412,16 @@ export const skillCategories: SkillCategory[] = [
     description: 'Core technical proficiencies in software engineering, AI, and computer vision.',
     icon: 'Cpu',
     items: [
-      { name: 'Python', context: 'Data pipelines, PyTorch, OpenCV & script automation', proficiency: 92 },
-      { name: 'Machine Learning', context: 'Supervised learning, classification & benchmarking', proficiency: 88 },
-      { name: 'Computer Vision', context: 'Object detection, OCR & image processing', proficiency: 90 },
-      { name: 'Data Analysis', context: 'Exploratory data analysis, statistics & cleaning', proficiency: 88 },
-      { name: 'SQL', context: 'Complex queries, schema design & joins', proficiency: 85 },
-      { name: 'API Integration', context: 'RESTful endpoints, LLM API & backend hooks', proficiency: 86 },
-      { name: 'Git', context: 'Branching, PRs, version control & collaboration', proficiency: 90 },
-      { name: 'YOLO', context: 'Model fine-tuning, inference & bounding box optimization', proficiency: 92 }
+      { name: 'Python'},
+      { name: 'Machine Learning'},
+      { name: 'Computer Vision'},
+      { name: 'Data Analysis'},
+      { name: 'SQL'},
+      { name: 'API Integration'},
+      { name: 'Git'},
+      { name: 'YOLO'},
+      { name: 'Web Development'},
+      { name: 'UI/UX Design'}
     ]
   },
   {
@@ -432,11 +431,16 @@ export const skillCategories: SkillCategory[] = [
     description: 'Interpersonal, cognitive, and collaborative strengths powering team success.',
     icon: 'Sparkles',
     items: [
-      { name: 'Collaboration', context: 'Working effectively across cross-functional engineering teams', proficiency: 95 },
-      { name: 'Problem Solving', context: 'Deconstructing complex operational challenges into modular solutions', proficiency: 92 },
-      { name: 'Analytical Thinking', context: 'Data-driven decision making and systematic root cause analysis', proficiency: 94 },
-      { name: 'Communication', context: 'Explaining AI metrics and system designs clearly to stakeholders', proficiency: 90 },
-      { name: 'Documentation', context: 'Writing clear workflow guidelines, architecture specs & annotation SOPs', proficiency: 92 }
+      { name: 'Collaboration'},
+      { name: 'Problem Solving'},
+      { name: 'Analytical Thinking'},
+      { name: 'Communication'},
+      { name: 'Documentation'},
+      { name: 'Leadership'},
+      { name: 'Adaptability'},
+      { name: 'Time Management'},
+      { name: 'Critical Thinking'},
+      { name: 'Creativity'}
     ]
   },
   {
@@ -465,8 +469,8 @@ export const skillCategories: SkillCategory[] = [
     description: 'Linguistic proficiencies for international and local collaboration.',
     icon: 'Globe',
     items: [
-      { name: 'Bahasa Indonesia', level: 'Native', context: 'Native proficiency in verbal and written communication' },
-      { name: 'English', level: 'Professional Working Proficiency', context: 'Fluent in technical documentation, presentations, and collaborative communication' }
+      { name: 'Bahasa Indonesia (Native)', level: 'Native', context: 'Native proficiency in verbal and written communication' },
+      { name: 'English (Professional Working Proficiency)', level: 'Professional Working Proficiency', context: 'Fluent in technical documentation, presentations, and collaborative communication' }
     ]
   }
 ];
@@ -482,8 +486,7 @@ export const educations: EducationItem[] = [
     scoreLabel: 'GPA: 3.69 / 4.00',
     location: 'Bogor, Indonesia',
     highlights: [
-      'Focusing on Computer Vision, AI-driven applications, Database Engineering, and Software Architecture.',
-      'Active in hands-on practical software development projects, technical mentorship, and industry internship programs.',
+      'Active in Micro IT Community and volunteered in various campus events.',
       'Maintained consistent high academic standing (GPA 3.69/4.00) with strong practical course evaluations.'
     ]
   },
@@ -497,8 +500,8 @@ export const educations: EducationItem[] = [
     scoreLabel: 'Final Grade: 86 / 100',
     location: 'South Tangerang, Indonesia',
     highlights: [
-      'Major in Natural Sciences (IPA), strengthening foundation in mathematics, logical reasoning, and analytical thinking.',
-      'Active participant in scientific learning and foundational computer science clubs.'
+      'Major in Natural Sciences (IPA)',
+      'Active member of a nature and outdoor exploration organization.'
     ]
   }
 ];
