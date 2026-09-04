@@ -1,5 +1,15 @@
 import { WorkExperience, TechStackItem, ProjectItem, SkillCategory, EducationItem, ContactInfo } from '../types';
 import profilePic from "../assets/pp.jpg"; 
+import anprPic from "../assets/ANPR.png";
+import scangagePic from "../assets/scangage.png";
+import comotLangsungPic from "../assets/comlang.png";
+import telagaSaranganPic from "../assets/telaga.png";
+import caffeIndMobilePic from "../assets/caffeind_mob.png";
+import caffeIndWebPic from "../assets/caffeind_web.png";
+import azureFitnessPic from "../assets/azure.png";
+import luxoraPic from "../assets/luxora.png";
+import globalVideoGameSalesPic from "../assets/global_vidgames.png";
+import tokoMajuJayaPic from "../assets/majujaya.png";
 
 export const personalInfo = {
   name: 'Aisya Tyanafisya',
@@ -38,7 +48,10 @@ export const workExperiences: WorkExperience[] = [
     type: 'Mentorship',
     highlights: [
       'Mentored students in Python programming and computational thinking through project-based learning.',
-      'Guided a student to achieve "Best Project Award" in a coding bootcamp.'
+      'Guided a student to achieve "Best Project Award" in a coding bootcamp.',
+      'Communicated regularly with parents to report student progress and align learning expectations, building trust and strengthening long-term engagement.',
+      'Persuaded 30+ prospective students to enroll in Timedoor Academy courses through effective communication and demonstration of program value.',
+      'Adapted teaching methods to accommodate diverse learning paces and styles among young students, improving comprehension and retention of coding concepts.'
     ],
     skillsUsed: ['Python', 'Computational Thinking', 'Mentoring', 'Problem Solving', 'Curriculum Guidance', 'Code Review']
   }
@@ -167,238 +180,332 @@ export const techStackData: TechStackItem[] = [
 export const projectItems: ProjectItem[] = [
   // AI & Web Development
   {
-    id: 'industrial-anpr-system',
-    title: 'Industrial ANPR & Safety Monitoring System',
+    id: 'anpr-system',
+    title: 'Automatic Number Plate Recognition (ANPR)',
     category: 'AI & Web Development',
-    tagline: 'Computer vision pipeline for automatic number plate recognition in heavy industry.',
-    folderName: 'Industrial_ANPR_v2.0',
-    date: '2025 – 2026',
+    tagline: 'Computer vision pipeline for automatic number plate recognition in coal mining industry.',
+    folderName: 'ANPR',
+    date: '2026',
     role: 'AI Engineer Intern',
     techStack: ['Python', 'YOLO', 'LLM API', 'OpenCV', 'Label Studio', 'PostgreSQL'],
-    imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: anprPic,
     overview: 'Engineered an end-to-end Automatic Number Plate Recognition (ANPR) safety system designed to monitor operational vehicle entries and compliance across industrial mining sites. Successfully achieved over 90% plate detection and OCR accuracy by evaluating comparative models under harsh dust, night, and rain conditions.',
     features: [
-      'Real-time vehicle detection and license plate cropping using fine-tuned YOLO',
-      'Dual-stage OCR benchmarking combining specialized computer vision models with LLM API validation',
-      'Automated alert dispatcher when unpermitted vehicles enter safety-restricted zones',
-      'Data preparation pipeline processing 10,000+ labeled images with Label Studio'
+      'Real-time vehicle detection and license plate recognition using fine-tuned YOLOv11',
+      'Auto-reconnect mechanism for CCTV/RTSP streams to maintain uptime after disconnection',
+      'Web-based monitoring dashboard (HTML, CSS, JavaScript) for live recognition results and system logs',
+      'MySQL database backend for storing and managing real-time detection results and logs',
+      'Benchmarked OCR approaches by comparing an LLM-based model (GPT-4o-mini) against Tesseract, EasyOCR, and other traditional engines',
+      'Data preparation pipeline processing 2,000+ labeled images with Label Studio'
     ],
     metricsOrOutcomes: [
-      '>90% Plate Recognition Accuracy achieved across testing sets',
-      '10,000+ High-quality annotated images curated across 6 sub-projects',
-      'Sub-second real-time inference latency for operational gates'
+      '>90% plate recognition accuracy achieved across testing sets',
+      '2,000+ high-quality annotated images curated across 6 sub-projects',
+      'Improved OCR robustness under varying lighting and environmental conditions via LLM-based validation'
     ],
     highlights: [
-      'Presented findings and accuracy metrics to cross-functional engineering teams',
+      'Designed and validating model performance across multiple real-world scenarios for production reliability',
+      'Presented benchmarking results (LLM vs. Tesseract vs. EasyOCR) and accuracy metrics to cross-functional engineering teams',
       'Designed robust annotation guidelines preventing class imbalances'
     ],
     mockupType: 'anpr-ai'
   },
   {
-    id: 'smart-vision-safety-dashboard',
-    title: 'Smart Vision Inspection & Operations Hub',
+    id: 'scangage-odd-even-detector',
+    title: 'ScanGage: Automated License Plate & Odd-Even Rule Detection System',
     category: 'AI & Web Development',
-    tagline: 'Web dashboard connecting edge cameras to live AI inference pipelines.',
-    folderName: 'Vision_Ops_Hub',
+    tagline: 'Computer vision web tool for real-time vehicle license plate scanning and odd-even traffic compliance checking.',
+    folderName: 'scangage',
     date: '2025',
-    role: 'Full Stack & AI Engineer',
-    techStack: ['Laravel', 'Python', 'MySQL', 'JavaScript', 'Tailwind CSS', 'YOLO'],
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
-    overview: 'A web-based operational command portal enabling site managers to inspect camera feeds, review flagged safety violations, view detected vehicle history, and manage access logs seamlessly in real time.',
+    role: 'Project Manager & Frontend Developer',
+    techStack: ['Python', 'YOLOv8', 'OpenCV / OCR', 'HTML', 'CSS', 'JavaScript'],
+    imageUrl: scangagePic,
+    overview: 'Developed an automated vehicle license plate recognition and verification platform for an academic Computer Vision course. ScanGage processes uploaded imagery or camera feeds to detect vehicle license plates, extract registration characters, and instantly determine odd-even traffic compliance based on the final digit.',
     features: [
-      'Live stream telemetry view with bounding boxes and confidence score overlay',
-      'Automated violation snapshot archiving with timestamp and license plate tags',
-      'Role-based access controls for security officers and site supervisors',
-      'REST API endpoints in Laravel connecting Python inference workers'
+      'Automated license plate localization and bounding box detection using a trained YOLOv8 model',
+      'Character extraction and Optical Character Recognition (OCR) pipeline to parse registration strings',
+      'Rule validation logic that identifies the final numeric digit to classify vehicles into odd or even categories',
+      'Interactive web-based user interface allowing seamless image/video input and immediate visual inspection overlay',
+      'Result summary dashboard showing detection confidence, recognized plate text, and real-time rule verdict'
     ],
     metricsOrOutcomes: [
-      'Streamlined incident review time by 65%',
-      'Handled concurrent multi-camera feeds with reliable logging'
+      'Successfully built and delivered an end-to-end computer vision pipeline fulfilling all course evaluation criteria',
+      'Coordinated a cross-functional campus team from model integration to user-facing frontend development'
     ],
     highlights: [
-      'Modular microservice architecture separating inference from UI rendering'
+      'Led project milestones as Project Manager while designing the interactive frontend evaluation dashboard',
+      'Bridge-engineered raw computer vision inference outputs into intuitive visual status badges (Ganjil / Genap) for end users'
     ],
-    mockupType: 'web-app'
+    mockupType: 'cv-ocr'
   },
   {
-    id: 'ai-assisted-dataset-labeler',
-    title: 'AI-Assisted Annotation & Dataset Pipeline',
+    id: 'comot-langsung',
+    title: 'Comot Langsung - Landing Page for Thrift Clothing Business',
     category: 'AI & Web Development',
-    tagline: 'Automated data curation and preprocessing pipeline for computer vision models.',
-    folderName: 'Auto_Dataset_Pipeline',
-    date: '2024 – 2025',
-    role: 'Lead Developer',
-    techStack: ['Python', 'Label Studio API', 'PostgreSQL', 'Docker', 'Git'],
-    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop',
-    overview: 'A pipeline utility built to accelerate dataset preparation by applying pre-labeling heuristics, automated image augmentations (blur, contrast, rain filters), and format conversions between YOLO, COCO, and Pascal VOC.',
+    tagline: 'Landing Page for Thrift/Vintage Clothing Business.',
+    folderName: 'comot_langsung',
+    date: '2024',
+    role: 'Project Manager & Frontend Developer',
+    techStack: ['CSS', 'JavaScript', 'HTML', 'PHP', 'Laravel', 'MySQL'],
+    imageUrl: comotLangsungPic,
+    overview: 'A web-based product catalog and company profile landing page built for a thrift/vintage clothing business owner, translating direct client requirements into a functional, user-friendly interface to showcase their products and brand online.',
     features: [
-      'Pre-annotation scripts saving manual labeling time by up to 40%',
-      'Quality check validator identifying misaligned bounding boxes and duplicate frames',
-      'Direct synchronization with Label Studio cloud workspace',
-      'Automated train/validation/test split generation with distribution plots'
+      'Company profile landing page showcasing the thrift store\'s brand and product catalog',
+      'Requirements gathered directly through stakeholder engagement with the business owner',
+      'Full-stack development using HTML, CSS, and JavaScript for the frontend and Laravel with MySQL for the backend and database',
+      'Responsive, user-friendly interface tailored to the client\'s business needs'
     ],
     metricsOrOutcomes: [
-      'Cut dataset turnaround cycle from 3 weeks to 6 days',
-      'Maintained consistent annotation standards across 6 distinct projects'
+      'Delivered a functional product catalog aligned with the client\'s branding and business goals',
+      'Successfully managed project scope, timeline, and delivery as Project Manager'
     ],
     highlights: [
-      'Created comprehensive documentation for cross-team labelers'
+      'Led end-to-end client communication, translating business requirements into technical specifications',
+      'Balanced project management and hands-on frontend development responsibilities'
     ],
     mockupType: 'cv-ocr'
   },
 
   // UI/UX
   {
-    id: 'safety-ops-figma-system',
-    title: 'Industrial Safety Monitoring UI Design System',
+    id: 'telaga-sarangan-ar-experience',
+    title: 'Telaga Sarangan: Folklore Interactive AR Mobile App',
     category: 'UI/UX',
-    tagline: 'High-contrast, accessible UI system for high-pressure control room environments.',
-    folderName: 'Industrial_UI_Kit',
+    tagline: 'Gamified cultural storytelling and interactive AR interface tailored for young learners.',
+    folderName: 'Telaga_Sarangan_AR',
     date: '2025',
-    role: 'UI/UX Designer & Researcher',
-    techStack: ['Figma', 'Design Tokens', 'User Research', 'Prototyping'],
-    imageUrl: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
-    overview: 'Designed a specialized dark and light control room dashboard interface tailored for 24/7 industrial surveillance. Focused on low cognitive load, rapid error identification, and tactile accessibility.',
+    role: 'UI/UX Designer',
+    techStack: ['Figma', 'User Persona', 'Mobile UI Design', 'Interactive Prototyping', 'Usability Testing'],
+    imageUrl: telagaSaranganPic,
+    overview: 'Designed a playful and immersive mobile user interface for an Augmented Reality folklore experience depicting the legend of Telaga Sarangan. Tailored specifically for student personas (elementary to high school), the visual system blends vibrant sky-blue aesthetics, 3D character illustrations, and structured bite-sized modal cards to make cultural heritage education engaging and accessible.',
     features: [
-      'Comprehensive component library with 120+ responsive Figma components',
-      'Color-coded safety alert taxonomy adhering to ISO industrial standards',
-      'Interactive prototype tested with field operators and security personnel',
-      'Responsive adaptations for widescreen multi-monitor setups and rugged tablets'
+      'Friendly onboarding flow showcasing progressive 3D visual storytelling (Egg to Dragon folklore transformation)',
+      'Clean vertical home menu with clear CTAs for AR launch, story library, and app guidelines',
+      'Curved modal overlay system for readable historical narratives and structured usage tutorials',
+      'Persistent bottom-sheet audio narrative controllers with interactive playback states',
+      'Unobtrusive AR HUD overlay with minimal back-navigation and direct sound toggles for focused 3D camera engagement'
     ],
     metricsOrOutcomes: [
-      '100% component reusability across web and tablet views',
-      'Tested with 8 operators with a 92% System Usability Scale (SUS) rating'
+      'Developed 2 distinct user personas (elementary student & high school creative) directly driving the visual language and font legibility choices',
+      'Completed a cohesive high-fidelity design system covering 12+ screen states from splash screen to AR overlay cards',
+      'Validated 100% user comprehension on AR camera controls through prototype walkthrough testing with target age groups'
     ],
     highlights: [
-      'Created thorough design tokens for colors, typography, and elevation'
+      'Solved visual fatigue in traditional history learning by replacing dense text with scannable modal cards and integrated audio guides',
+      'Created child-friendly tactile UI components using soft-cornered pill buttons and playful thematic illustrations'
     ],
     mockupType: 'ui-design'
   },
   {
-    id: 'timedoor-edutech-ui',
-    title: 'EduTech CodeLab Platform Interface',
+    id: 'comot-langsung-vintage-ecommerce',
+    title: 'Comot Langsung: Vintage Thrift Web & Direct-Order Interface',
     category: 'UI/UX',
-    tagline: 'Gamified and welcoming computational learning environment for young coders.',
-    folderName: 'CodeLab_Edu_UI',
-    date: '2024',
-    role: 'Product Designer',
-    techStack: ['Figma', 'Interactive Prototyping', 'Design Thinking'],
-    imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
-    overview: 'Crafted an intuitive, friendly educational interface inspired by visual programming. Designed to demystify complex Python syntax for young learners and highlight project achievement milestones.',
+    tagline: 'Retro-modern e-commerce web interface tailored for seamless WhatsApp direct ordering and vintage curation.',
+    folderName: 'Comot_Langsung_Web',
+    date: '2025',
+    role: 'UI/UX Designer',
+    techStack: ['Figma', 'Web UI Design', 'Design Systems', 'Stakeholder Alignment', 'Interactive Prototyping'],
+    imageUrl: comotLangsungPic,
+    overview: 'Designed a comprehensive web storefront and ordering interface for Comot Langsung, an online vintage apparel and thrift store. Collaborated closely with the business owner to translate stakeholder requirements into a functional e-commerce journey that blends raw street/vintage aesthetic branding with a streamlined direct-to-WhatsApp order and QRIS payment verification flow.',
     features: [
-      'Visual code explorer with interactive block-to-Python transition tooltips',
-      'Gamified badge & achievement celebration modal pop-ups',
-      'Mentor feedback panel with inline annotation stickers and encouragement notes'
+      'Vintage-styled landing page showcasing curated drop collections, new arrivals, and brand value propositions',
+      'Structured shop catalog with multi-column product grids and category-based filtering',
+      'Product detail page featuring responsive image thumbnail galleries, condition badges, and size specifications',
+      'Hybrid checkout interface supporting form input, QRIS digital payment prompt, and direct WhatsApp order confirmation routing',
+      'End-to-end user account portal covering authentication (Sign In/Sign Up states), profile management, and order history tracking',
+      'Dedicated informational pages including responsive store location map (Contact Us) and brand narrative layout (About Us)'
     ],
     metricsOrOutcomes: [
-      'Directly informed Timedoor project curriculum presentation designs',
-      'Boosted student project submission satisfaction'
+      'Architected an end-to-end Figma UI kit and page architecture spanning 16+ distinct desktop screens and validation modal states',
+      'Reduced customer checkout friction by mapping a direct order flow connecting web product selections straight to WhatsApp chat threads',
+      'Aligned 100% of the UI design system with stakeholder business needs—balancing raw thrift aesthetics with legible utility navigation'
     ],
     highlights: [
-      'Conducted empathy interviews with young students and coding instructors'
+      'Established a high-contrast vintage color scheme (charcoal dark footers, warm accents, and clean product display grids)',
+      'Standardized form feedback modals (success/error alerts) across sign-in, profile editing, and checkout submission points'
     ],
     mockupType: 'ui-design'
   },
   {
-    id: 'smart-annotation-studio-ui',
-    title: 'Vision Studio Annotation Tool UX',
+    id: 'caffe-ind-mobile-experience',
+    title: 'Caffe-Ind: Smart Ordering & Caffeine Intake Reminder App',
     category: 'UI/UX',
-    tagline: 'Streamlined desktop workspace interface for fast bounding-box labeling.',
-    folderName: 'Vision_Studio_UX',
+    tagline: 'Bridging specialty coffee ordering with mindful daily caffeine limit monitoring and community engagement.',
+    folderName: 'Caffe_Ind_Mobile',
+    date: '2025',
+    role: 'UI/UX Designer',
+    techStack: ['Figma', 'Mobile UI Design', 'Data Visualization', 'Interaction Design', 'Interactive Prototyping'],
+    imageUrl: caffeIndMobilePic,
+    overview: 'Designed a comprehensive mobile application in collaboration with coffee shop partner KOPInTOUCH. Caffe-Ind merges beverage ordering with a daily intake monitoring companion, helping users enjoy their favorite coffee while keeping track of their daily caffeine levels through intuitive consumption charts, real-time limit reminders, and an integrated coffee community forum.',
+    features: [
+      'Onboarding & authentication suite featuring guided coffee persona selection and account setup',
+      'Catalog & order flow integrated with digital payment prompts and quick-scan pickup QR codes',
+      'Daily caffeine dashboard with color-coded pie charts, intake trends, and threshold limit warnings to prevent overconsumption',
+      'Drink intake logging flow with automatic caffeine calculation based on the ordered menu',
+      'Interactive community discussion forum featuring category filtering, topic threads, and peer comment interactions',
+      'Account & profile management covering loyalty badges, profile editing, security settings, and order history tracking'
+    ],
+    metricsOrOutcomes: [
+      'Designed 30+ comprehensive high-fidelity mobile screens covering end-to-end edge states, modals, and sub-flows',
+      'Translated daily caffeine safety thresholds into scannable charts and clear reminder alerts without disrupting the ordering experience',
+      'Established a bold visual identity using signature crimson/maroon tones balanced with clean, high-contrast readable layouts'
+    ],
+    highlights: [
+      'Engineered intuitive data visualization widgets and alert badges that notify users before reaching their daily caffeine threshold',
+      'Built a balanced app ecosystem combining commercial coffee ordering with mindful health reminder utilities and social community features'
+    ],
+    mockupType: 'ui-design'
+  },
+  {
+    id: 'caffe-ind-web-platform',
+    title: 'Caffe-Ind: Responsive Web Platform for Coffee Ordering & Caffeine Tracking',
+    category: 'UI/UX',
+    tagline: 'Cross-platform desktop companion for mindful caffeine monitoring and seamless beverage ordering.',
+    folderName: 'Caffe_Ind_Web',
+    date: '2025',
+    role: 'UI/UX Designer',
+    techStack: ['Figma', 'Web UI Design', 'Responsive Layout', 'Design Systems', 'Interactive Prototyping'],
+    imageUrl: caffeIndWebPic,
+    overview: 'Designed a full-featured desktop web counterpart for Caffe-Ind in partnership with KOPInTOUCH. The web platform mirrors the mobile ecosystem, extending the experience to desktop browsers with spacious layouts, complete ordering flows, interactive caffeine monitoring dashboards, and community forum pages while preserving a unified brand identity across both platforms.',
+    features: [
+      'Hero landing page showcasing brand storytelling, partner collaboration highlights, and direct mobile app download links',
+      'Responsive digital menu views offering both compact list view and expansive visual grid layouts with caffeine content tags',
+      'Expanded desktop caffeine analytics dashboard displaying daily intake pie charts, weekly trends, and threshold limit indicators',
+      'Integrated community discussion hub with multi-column thread feeds, comment sections, and topic search',
+      'Full desktop authentication suite (Sign In/Out, Register, and Password Reset) with modular center-card layouts',
+      'Dedicated user portal for logging daily drinks, viewing KOPInTOUCH order histories, and editing profile preferences'
+    ],
+    metricsOrOutcomes: [
+      'Architected an expansive multi-page desktop UI system maintaining 100% visual and token consistency with the mobile application',
+      'Optimized data visualization components for widescreen viewports without compromising readability of caffeine threshold charts',
+      'Successfully mapped multi-step ordering and drink-logging journeys into intuitive, wide-grid desktop interactions'
+    ],
+    highlights: [
+      'Maintained cohesive cross-device design language using signature crimson/maroon branding, patterned headers, and high-contrast cards',
+      'Translated mobile bottom-sheet dialogues into spacious modal windows and structured side-by-side desktop form layouts'
+    ],
+    mockupType: 'ui-design'
+  },
+  {
+    id: 'azure-gym-fitness-tracker',
+    title: 'Azure: Smart Gym Companion & Machine Tutorial UI',
+    category: 'UI/UX',
+    tagline: 'Streamlined workout companion featuring gym machine scanning guides and live repetition tracking.',
+    folderName: 'Azure_Fitness_App',
+    date: '2025',
+    role: 'UI/UX Designer',
+    techStack: ['Figma', 'Mobile UI Design', 'Fitness Tech UI', 'Workout Tracking Interface', 'Interactive Prototyping'],
+    imageUrl: azureFitnessPic,
+    overview: 'Designed an intuitive mobile fitness app called Azure, built to assist gym-goers with machine orientation and workout tracking. The interface allows users to scan gym equipment to access step-by-step visual usage tutorials, paired with real-time repetition counting, set trackers, and comprehensive daily metric summaries on the home dashboard.',
+    features: [
+      'Immersive photo-driven onboarding and glassmorphism authentication flow with personal goal setup',
+      'Home dashboard summarizing daily fitness metrics, active calories, sleep, and workout streaks',
+      'Equipment scanner UI with full-screen camera view and visual tutorial states for proper exercise execution',
+      'Workout execution screens featuring set-by-set repetition counters, warm-up intervals, and completion feedback',
+      'Activity & Goals tracking tabs displaying weekly progress charts, targeted muscle splits, and scheduled routines',
+      'Integrated gym membership selection, payment status confirmation, settings, and social fitness feed'
+    ],
+    metricsOrOutcomes: [
+      'Crafted an end-to-end mobile design system with 25+ detailed UI screens and interactive workout states',
+      'Engineered an ergonomic exercise tracking interface optimized for quick one-handed adjustments during intense workout sets',
+      'Balanced dark gym photography aesthetics with high-visibility cyan/teal UI elements for readable indoor use'
+    ],
+    highlights: [
+      'Structured clear, glanceable repetition and set countdown cards positioned cleanly below exercise visual guides',
+      'Maintained cohesive glassmorphism and gradient accents across splash, onboarding cards, and workout completion dialogs'
+    ],
+    mockupType: 'ui-design'
+  },
+  {
+    id: 'luxora-property-booking-app',
+    title: 'Luxora: Hotel & Apartment Accommodation Booking App',
+    category: 'UI/UX',
+    tagline: 'Modern, serene mobile hospitality interface designed for frictionless stay discovery and reservations.',
+    folderName: 'Luxora_Booking_App',
     date: '2024',
     role: 'UI/UX Designer',
-    techStack: ['Figma', 'Wireframing', 'User Testing'],
-    imageUrl: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=1200&auto=format&fit=crop',
-    overview: 'A minimalist tool workspace prototype designed to reduce wrist fatigue and maximize keyboard-driven workflow efficiency for data annotators working on high-volume image batches.',
+    techStack: ['Figma', 'Mobile UI Design', 'Design Systems', 'Flow Mapping', 'Prototyping'],
+    imageUrl: luxoraPic,
+    overview: 'Designed a mobile accommodation booking interface created as a UI/UX certification course project. Luxora streamlines the process of discovering, comparing, and reserving boutique hotels and serviced apartments through an organic sage-green aesthetic, clean card architecture, and an intuitive end-to-end booking journey.',
     features: [
-      'Keyboard shortcut HUD with instant visual feedback',
-      'Smart zoom magnifier and contrast adjust sliders for dark surveillance frames',
-      'Batch progress overview and anomaly inspector drawers'
+      'Onboarding walkthrough featuring flat custom illustrations and social login authentication (Sign In & Sign Up)',
+      'Discovery homepage with category filters, curated top stays, and location-based recommendation banners',
+      'Comprehensive search filter interface supporting check-in date selection, guest counter, star rating, and price sliders',
+      'Multi-tab property detail views covering high-res imagery, amenity checklists, location maps, and room selection cards',
+      'Streamlined booking and checkout confirmation flow ending in a clear digital payment success screen',
+      'Dedicated user dashboard tabs including saved wishlist/favorites, active booking tickets, customer reviews, and profile management'
     ],
     metricsOrOutcomes: [
-      'Designed to reduce repetitive clicks per image annotation by ~30%'
+      'Architected an end-to-end mobile design flow spanning 24+ consistent high-fidelity screens',
+      'Successfully fulfilled all UI/UX course project requirements with emphasis on visual hierarchy and usability heuristics',
+      'Created a calm, accessible visual identity centered around natural sage-green tones and readable typography'
     ],
     highlights: [
-      'Focused on ergonomic UI spacing and clean visual hierarchy'
+      'Maintained strong typographic hierarchy and whitespace balance across dense property specification and pricing screens',
+      'Designed modular property card components adaptable for horizontal scroll carousels, vertical listings, and wishlist grids'
     ],
     mockupType: 'ui-design'
   },
+    
 
   // Data Analyst
   {
-    id: 'vehicle-safety-powerbi',
-    title: 'Operational Vehicle & Safety Telemetry Analytics',
+    id: 'global-video-game-sales-analysis',
+    title: 'Global Video Game Sales Analysis Dashboard',
     category: 'Data Analyst',
-    tagline: 'Interactive Power BI reporting system visualizing fleet movement and ANPR metrics.',
-    folderName: 'Vehicle_Telemetry_BI',
-    date: '2025',
-    role: 'Data Analyst & BI Developer',
-    techStack: ['Power BI', 'DAX', 'PostgreSQL', 'SQL', 'Python'],
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
-    overview: 'Built an analytical reporting suite that ingests ANPR camera logs, vehicle classifications, and zone permissions to uncover traffic bottlenecks, peak operational hours, and unauthorized gate access trends.',
-    features: [
-      'Interactive time-series heatmap showcasing peak hourly traffic volume',
-      'Anomaly detection drill-through for unregistered plate occurrences',
-      'Custom DAX measures for average gate clearance turnaround and violation rates',
-      'Automated scheduled refresh connected directly to PostgreSQL staging views'
-    ],
-    metricsOrOutcomes: [
-      'Analyzed 50,000+ historical vehicle transit records',
-      'Identified peak bottleneck intervals enabling 20% faster gate transitions'
-    ],
-    highlights: [
-      'Built reusable star-schema data models and documented DAX measures'
-    ],
-    mockupType: 'dashboard'
-  },
-  {
-    id: 'model-accuracy-tableau',
-    title: 'Computer Vision Model Evaluation & Benchmark Dashboard',
-    category: 'Data Analyst',
-    tagline: 'Tableau visual intelligence tracking precision, recall, and environmental stress tests.',
-    folderName: 'Model_Benchmarking_Tableau',
+    tagline: 'Tableau dashboard exploring global video game sales trends from 1980-2020.',
+    folderName: 'video_game_sales',
     date: '2025',
     role: 'Data Analyst',
-    techStack: ['Tableau', 'Python', 'Pandas', 'SQL'],
-    imageUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop',
-    overview: 'Created an executive and engineering evaluation dashboard in Tableau to compare ANPR and OCR model iterations across 6 environmental conditions (daylight, heavy rain, night glare, dust, high velocity, and tilt).',
+    techStack: ['Tableau', 'Data Visualization', 'Data Analysis'],
+    imageUrl: globalVideoGameSalesPic,
+    overview: 'An interactive Tableau dashboard analyzing a Kaggle dataset of 16,598 video game titles released between 1980 and 2020, exploring genre popularity, platform performance, and global sales trends over time.',
     features: [
-      'Interactive confusion matrix and PR curve visualizers for each YOLO checkpoint',
-      'Environmental sensitivity matrix pinpointing OCR failure modes',
-      'Dataset distribution analyzer verifying balance across 10,000+ annotated images',
-      'Executive summary cards highlighting sprint-over-sprint accuracy improvements'
+      'KPI summary highlighting top genre (Action) and total games released',
+      'Time-series comparison of global sales trends across PS-PS4 console generations',
+      'Bubble chart ranking top 10 genres by global sales volume',
+      'Bar chart comparison of total global sales across all gaming platforms',
+      'Treemap visualization of top 3 genres and game release counts by year',
+      'Filterable, detailed game list table with genre, publisher, and platform breakdown'
     ],
     metricsOrOutcomes: [
-      'Directly guided model fine-tuning hyperparameters resulting in >90% benchmark accuracy',
-      'Provided transparent visual reporting for engineering leads and management'
+      'Analyzed 16,598 games released between 1980-2020',
+      'Identified Action as the dominant genre with 3,316 titles',
+      'Visualized sales lifecycle trends across 6 console generations (PS to PS4)'
     ],
     highlights: [
-      'Automated Python scripts to parse inference log files into clean tabular data'
+      'Built a dark-themed, executive-style dashboard layout optimized for readability of dense data',
+      'Combined trend, distribution, and hierarchical (treemap) visualizations to tell a cohesive sales story'
     ],
     mockupType: 'dashboard'
   },
   {
-    id: 'edutech-student-analytics',
-    title: 'Student Computational Thinking & Milestone Analytics',
+    id: 'toko-maju-jaya-sales-dashboard',
+    title: 'Toko Maju Jaya - Retail Sales Analytics Dashboard',
     category: 'Data Analyst',
-    tagline: 'Educational data exploration identifying learning curves and project mastery patterns.',
-    folderName: 'Student_Learning_Insights',
-    date: '2024 – 2025',
-    role: 'Coding Mentor & Analyst',
-    techStack: ['Python', 'Pandas', 'Tableau', 'Microsoft Office'],
-    imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1200&auto=format&fit=crop',
-    overview: 'Aggregated student exercise completion rates, debugging times, and quiz metrics to identify common cognitive roadblocks in Python programming loops and algorithms.',
+    tagline: 'Interactive Power BI dashboard analyzing multi-store retail sales performance.',
+    folderName: 'toko_maju_jaya',
+    date: '2025',
+    role: 'Data Analyst',
+    techStack: ['Power BI', 'Data Visualization', 'Data Analysis'],
+    imageUrl: tokoMajuJayaPic,
+    overview: 'An interactive Power BI dashboard built from a Kaggle retail dataset to analyze sales performance across three stores (Toko A, B, C), tracking revenue trends, product correlation, and workforce impact on sales.',
     features: [
-      'Curriculum difficulty heatmaps highlighting concepts needing extra instructional support',
-      'Individual student mastery scorecards tracking project progress',
-      'Predictive indicators for students needing 1-on-1 mentorship interventions'
+      'KPI summary cards displaying total products sold and total revenue',
+      'Monthly sales trend visualization broken down by store',
+      'Annual sales distribution comparison across all three stores',
+      'Correlation analysis between product availability and total sales',
+      'Correlation analysis between employee headcount and sales performance',
+      'Detailed monthly revenue and expense breakdown table per store'
     ],
     metricsOrOutcomes: [
-      'Helped increase course completion rate to 94%',
-      'Supported student trajectory leading to "Best Project Award" victory'
+      'Analyzed 46K total units sold and Rp19.60M in total revenue',
+      'Tracked Rp128.11M in cumulative operational expenses across stores',
+      'Identified sales distribution split of ~36% / 32% / 32% across the three stores'
     ],
     highlights: [
-      'Presented data-backed curriculum adjustment recommendations to academic leads'
+      'Designed a multi-panel dashboard layout balancing KPIs, trends, and correlation insights on a single view',
+      'Built custom data visualizations to support cross-filtering between store, month, and product metrics'
     ],
     mockupType: 'dashboard'
   }
